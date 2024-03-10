@@ -41,7 +41,7 @@ layout:decorate="template1">
                     <td th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
                         <a onclick="javascript:return confirm('Etes vous sur de bien vouloir supprimer ce patient?')" th:href="@{/admin/delete(id=${p.id},keyword=${keyword},page=${currentPage})}"class="btn btn-danger">Delete</a>
                     </td>
-                    <td>
+                    <td th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
                         <a class="btn btn-success" th:href="@{/admin/editPatient(id=${p.id}, keyword=${keyword},page=${currentPage})}">Edit</a>
                     </td>
                 </tr>
